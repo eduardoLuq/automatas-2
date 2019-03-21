@@ -28,7 +28,6 @@ public class ProgramInterfaz extends javax.swing.JFrame {
             while((lectura=entrada.read())!=-1){
                 char caracter=(char) lectura;
                 codigo+=caracter;
-                
                 }
             }
         
@@ -77,7 +76,7 @@ public class ProgramInterfaz extends javax.swing.JFrame {
             }
         });
 
-        btnAnalisis.setText("Comienza Análisis");
+        btnAnalisis.setText("Comienza Analisis");
         btnAnalisis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnalisisActionPerformed(evt);
@@ -132,7 +131,7 @@ public class ProgramInterfaz extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "No.", "Símbolo", "Tipo de Dato"
+                "No.", "Simbolo", "Tipo de Dato","valor","posicion","alcanze"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -146,7 +145,7 @@ public class ProgramInterfaz extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tSimbolos);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Código byteCode");
+        jLabel4.setText("Codigo byteCode");
 
         areaBytecode.setColumns(20);
         areaBytecode.setRows(5);

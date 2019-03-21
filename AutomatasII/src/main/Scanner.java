@@ -10,7 +10,7 @@ public class Scanner {
     private final String[] tokens;
     private String tipoToken;
     private String token;
-    private final String[] reservadas = {"class", "boolean", "int", "while", "System.out.println", "true", "false"};
+    private final String[] reservadas = {"class", "boolean", "int", "while", "System.out.println", "true", "false","public","private"};
     private final String[] operadores = {"=", "<", "+", "-", "*"};
     private final String[] delimitadores = {";", "{", "}", "(" , ")"};
     
@@ -79,9 +79,9 @@ public class Scanner {
         
         //Error:
         if(!tokenValido) {
-            error("El token \"" + token + "\" es inválido para el lenguaje.");
+            error("El token \"" + token + "\" es invalido para el lenguaje.");
             setTipoToken("ERROR", b);
-            return "TOKEN INVÁLIDO!!!!";
+            return "TOKEN INVALIDO!!!!";
         }
         return token;
     }
@@ -157,8 +157,8 @@ public class Scanner {
     //Verificacion de error léxico
     public void error(String error) {
         switch(JOptionPane.showConfirmDialog(null,
-                "Error léxico: " + error + ".\n"
-                        + "¿Desea terminar la aplicación?",
+                "Error lexico: " + error + ".\n"
+                        + "�Desea terminar la aplicacion?",
                 "Ha ocurrido un error",
                 JOptionPane.YES_NO_OPTION)) {
             case JOptionPane.NO_OPTION:

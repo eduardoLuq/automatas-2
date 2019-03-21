@@ -8,7 +8,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 public class Parser {
     
-    //Declaración de variables
+    //DeclaraciÃ³n de variables
     Programax p = null;
     String[] tipo = null;
     String[] variable;
@@ -30,8 +30,8 @@ public class Parser {
     //Contador de los errores
     static int err; 
     
-    //Sección de bytecode  --------------------------------
-    private int cntBC = 0; // Contador de lineas para el código bytecode
+    //SecciÃ³n de bytecode  --------------------------------
+    private int cntBC = 0; // Contador de lineas para el cÃ³digo bytecode
     private String bc; // String temporal de bytecode
     private int jmp1, jmp2, jmp3;
     private int aux1, aux2, aux3;
@@ -42,7 +42,7 @@ public class Parser {
     private int cntIns = 0;
     //---------------------------------------------
     
-    //Constructor del parser con el código
+    //Constructor del parser con el cÃ³digo
     public Parser(String codigo) {  
         
         //Inicializando contador de tokens y de errores
@@ -58,11 +58,11 @@ public class Parser {
         //Tras terminar compilacion
         if (err==0){
             System.out.println("\n BYTECODE: \n"+getBytecode());
-            JOptionPane.showMessageDialog(null, "Compilación realizada completamente!");
+            JOptionPane.showMessageDialog(null, "CompilaciÃ³n realizada completamente!");
             mandarTabla(); 
         }
         else {
-            javax.swing.JOptionPane.showMessageDialog(null, "Se presentaron errores durante la compilación", "Error",
+            javax.swing.JOptionPane.showMessageDialog(null, "Se presentaron errores durante la compilaciÃ³n", "Error",
             javax.swing.JOptionPane.ERROR_MESSAGE);
         
         }
@@ -71,7 +71,7 @@ public class Parser {
     }
     
     
-    //INICIO DE ANÁLISIS SINTÁCTICO
+    //INICIO DE ANÃ�LISIS SINTÃ�CTICO
     public void advance() {
         token = s.getToken(true);
         tokenActual = s.getToken(false);
@@ -111,13 +111,13 @@ public class Parser {
         eat(llaveAbre); 
         s = S();
         eat(llaveCierra);
-        byteCode("return"); //Retornar el último bloque de bytecode (return)
+        byteCode("return"); //Retornar el Ãºltimo bloque de bytecode (return)
         
         return new Programax(i, d, s);
           
     }
         
-    //Sección que crea la declaracion de variables
+    //SecciÃ³n que crea la declaracion de variables
     public Declarax D() {
       
        //Verificacion de Tipos (que sea int / boolean) 
@@ -248,7 +248,7 @@ public class Parser {
                 if (tknCode!= whilex ||tknCode!= sopx || tknCode!= identx )
                     return null;
                 else { 
-                error(token, "( while | sop | identificador = expresión )");
+                error(token, "( while | sop | identificador = expresiÃ³n )");
                 err = 1;
                 return null; }
         }
@@ -270,7 +270,7 @@ public class Parser {
     //Verificacion de expresiones
     public Expx E() {
         
-        //Validar primeramente si es un número Integer la expresion
+        //Validar primeramente si es un nÃºmero Integer la expresion
         if (esInteger(token)) {
             int num;
             num = Integer.parseInt(token);
@@ -310,15 +310,15 @@ public class Parser {
                    }
       
                default: 
-                   error(token, "(Expresión)");
+                   error(token, "(ExpresiÃ³n)");
                    err = 1;
                    return null;
            }
        }
-        //FIN DEL ANÁLISIS SINTÁCTICO
+        //FIN DEL ANÃ�LISIS SINTÃ�CTICO
     
     
-    //Ver todos los tokens y regresa su código ligado.
+    //Ver todos los tokens y regresa su cÃ³digo ligado.
     public int stringToCode(String t) {
         int codigo = 0;
         switch(t) {
@@ -373,10 +373,10 @@ public class Parser {
     //En caso de que lance un error SINTACTICO
     public void error(String token, String t) {
         switch(JOptionPane.showConfirmDialog(null,
-                "Error sintáctico:\n"
-                        + "El token:("+ token + ") no concuerda con la gramática del lenguaje,\n"
+                "Error sintÃ¡ctico:\n"
+                        + "El token:("+ token + ") no concuerda con la gramÃ¡tica del lenguaje,\n"
                         + "se espera: " + t + "\n"
-                        + "¿Desea terminar la aplicación?",
+                        + "Â¿Desea terminar la aplicaciÃ³n?",
                 "Ha ocurrido un error",
                 JOptionPane.YES_NO_OPTION)) {
             case JOptionPane.NO_OPTION:
@@ -397,7 +397,7 @@ public class Parser {
         return tt;
     }
     
-    //Manda la tabla de símobolos a la tabla de la interfaz
+    //Manda la tabla de sÃ­mobolos a la tabla de la interfaz
     public ArrayList<DSimbolos> mandaSimbolos() {
         ArrayList<DSimbolos> tts;
         tts = ts;
@@ -415,17 +415,17 @@ public class Parser {
     }
    
     
-    //SEGUNDA PARTE DEL PROYECTO (CONTINUACIÓN)
+    //SEGUNDA PARTE DEL PROYECTO (CONTINUACIÃ“N)
     
-    //Recorrido de la parte izquierda del árbol y creación de la tabla de símbolos (EN CONSOLA)
+    //Recorrido de la parte izquierda del Ã¡rbol y creaciÃ³n de la tabla de sÃ­mbolos (EN CONSOLA)
     public void createTable() {
         
         variable = new String[tablaSimbolos.size()];
         tipo = new String[tablaSimbolos.size()];
         
-        //Imprime tabla de símbolos
+        //Imprime tabla de sÃ­mbolos
         System.out.println("-----------------");
-        System.out.println("TABLA DE SÍMBOLOS");
+        System.out.println("TABLA DE SÃ�MBOLOS");
         System.out.println("-----------------");
         for(int i=0; i<tablaSimbolos.size(); i++) {
             int no; 
@@ -439,7 +439,7 @@ public class Parser {
             
             ts.add(new DSimbolos(no, variable[i], tipo[i])); //Tabla DSimbolos para el Frame
             
-            System.out.println(no+"   "+variable[i] + ": "+ tipo[i]); //Imprime tabla de símbolos por consola. 
+            System.out.println(no+"   "+variable[i] + ": "+ tipo[i]); //Imprime tabla de sÃ­mbolos por consola. 
         }
         
         ArrayUtils.reverse(variable);
@@ -450,7 +450,7 @@ public class Parser {
     
    
     
-    //Verifica las declaraciones de las variables consultando la tabla de símbolos
+    //Verifica las declaraciones de las variables consultando la tabla de sÃ­mbolos
     public void declarationCheck(String s) {
         boolean valido = false;
         for (int i=0; i<tablaSimbolos.size(); i++) { //} 
@@ -460,15 +460,15 @@ public class Parser {
             }
         }
         if(!valido) {
-            System.out.println("La varible "+ s +  " no está declarada.\nSe detuvo la ejecución.");
-             javax.swing.JOptionPane.showMessageDialog(null, "La varible [" + s + "] no está declarada", "Error",
+            System.out.println("La varible "+ s +  " no estÃ¡ declarada.\nSe detuvo la ejecuciÃ³n.");
+             javax.swing.JOptionPane.showMessageDialog(null, "La varible [" + s + "] no estÃ¡ declarada", "Error",
                    javax.swing.JOptionPane.ERROR_MESSAGE);
              err = 1;
         }
     }
     
     
-    //Chequeo de tipos consultando la tabla de símbolos
+    //Chequeo de tipos consultando la tabla de sÃ­mbolos
     public void checarCompatibilidad(String s1, String s2) {
         
         Declarax elementoCompara1;
@@ -480,7 +480,7 @@ public class Parser {
         for(int i=0; i<tablaSimbolos.size() ; i++) {
           elementoCompara1 = (Declarax) tablaSimbolos.elementAt(i);
           if(s1.equals(elementoCompara1.s2)) {
-            System.out.println("Se encontró el primer elemento en la tabla de símbolos...");
+            System.out.println("Se encontrÃ³ el primer elemento en la tabla de sÃ­mbolos...");
             //System.out.println(elementoCompara1.getTypex().getTypex());
             t1 = elementoCompara1.getTypex().getTypex();
             for(int j=0; j<tablaSimbolos.size() ; j++) {
@@ -490,7 +490,7 @@ public class Parser {
               //Ver si el segundo elemento a comparar es un identificador, un boolean o un int
               if(s2.equals(elementoCompara2.s2) || (s2.equals("boolean")) || (s2.equals("int")) ) {
                 int caso = 0;  
-                System.out.println("Se encontró el segundo elemento en la tabla de símbolos...");
+                System.out.println("Se encontrÃ³ el segundo elemento en la tabla de sÃ­mbolos...");
                 if (s2 == "boolean") 
                 { 
                     t2 = "boolean"; caso=1;
@@ -518,7 +518,7 @@ public class Parser {
                   } 
                   else if (caso==2) { 
                   javax.swing.JOptionPane.showMessageDialog(null, "Incompatibilidad de tipos: "+ elementoCompara1.s2 +" ("
-                      + elementoCompara1.s1.getTypex() + ") , Numérico(int)", "Error",
+                      + elementoCompara1.s1.getTypex() + ") , NumÃ©rico(int)", "Error",
                       javax.swing.JOptionPane.ERROR_MESSAGE);
                     err = 1; 
                   }
@@ -541,7 +541,7 @@ public class Parser {
         }
     }
     
-    //Chequeo de tipos para la asignación ( Identificador = Expresion ) 
+    //Chequeo de tipos para la asignaciÃ³n ( Identificador = Expresion ) 
     public void checarCompatibilidadAsign(String s1, Expx e1) {
         
         String datoExp = e1.tipoDato();
@@ -765,7 +765,7 @@ public class Parser {
         cntBC++;
     }
     
-    //Retorna todo el código Bytecode obtenido
+    //Retorna todo el cÃ³digo Bytecode obtenido
     public String getBytecode() {
         String JBC = "";
         for(int i=0; i<pilaBC.length; i++) {
