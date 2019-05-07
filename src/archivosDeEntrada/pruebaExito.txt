@@ -1,0 +1,15 @@
+public class clase {
+	
+	public string varString = "adios";
+	private int varInt = 2;
+	public double varDouble = 2.5;
+	private boolean varBoolean = true;
+
+    varString = "hola " + varString;
+    varInt = 2 * 5;
+    varDouble = 6.6 - varDouble;
+    varBoolean = false;
+
+	public int var_cuatro;
+
+}

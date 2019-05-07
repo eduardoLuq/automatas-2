@@ -1,0 +1,6 @@
+public class clase {
+	
+	public int varString= 1;
+
+    public string varString = 'ya existe esta variable';
+}

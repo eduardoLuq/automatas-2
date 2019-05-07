@@ -1,0 +1,5 @@
+public class clase {
+	
+	public boolean varBoolean = true + true;
+
+}

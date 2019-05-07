@@ -1,0 +1,16 @@
+public class clase {
+
+	public int varString = -(2 * 6);
+
+  public int var2 = -(-varString + 1);
+  public int var3 = var2 * var2;
+  var2 = var3 + 1;
+
+  public boolean varBool = true;
+  varBool = !varBool;
+  varBool = varBool || true;
+  varBool = varBool && false;
+  varBool = varBool == varBool;
+  varBool = varBool != varBool;
+
+}

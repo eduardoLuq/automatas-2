@@ -1,0 +1,12 @@
+public class Triplos{
+	public int x;
+	public int y;
+	public int z;
+	public int w;
+	x = 10;
+	y = 10;
+	z = 4;
+	x = (x + y) / (z);
+	w = (1*2+10)/2;
+
+}
